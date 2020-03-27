@@ -1,4 +1,6 @@
 <mat-toolbar color='primary'>
-  Header Text
-  <p class='mb-0'>Lazy loaded route</p>
+  <p class='mb-0' [routerLink]="['']" routerLinkActive>
+  Home
+  </p>
+  <p [routerLink]='["/another"]' class='mb-0'>Lazy loaded route</p>
 </mat-toolbar>
