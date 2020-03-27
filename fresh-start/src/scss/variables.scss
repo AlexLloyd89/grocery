@@ -79,12 +79,19 @@ $mat-app-theme: mat-light-theme(
 /* Colors */
 $primary: #e9178e;
 $accent: #2b2729;
-$warn: red;
+$warn: #e92424;
 $white: #fff;
 $black: #000;
 $dark-gray: #54585a;
 $light-gray: #acacac;
 $lighter-gray: #f7f7f7;
+
+/* Sizes */
+$spacing-xs: 5px;
+$spacing-sm: 10px;
+$spacing-md: 20px;
+$spacing-lg: 30px;
+$spacing-xl: 40px;
 
 // mandatory stuff for theming
 $app-primary: mat-palette($mat-app-primary);

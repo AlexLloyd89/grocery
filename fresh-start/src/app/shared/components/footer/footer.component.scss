@@ -1,0 +1,8 @@
+@import "../../../../scss//variables.scss";
+
+.mat-toolbar {
+  background: $accent;
+  color: $white;
+  display: flex;
+  justify-content: center;
+}

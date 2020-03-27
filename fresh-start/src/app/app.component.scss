@@ -1,0 +1,9 @@
+.app-container {
+  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.router-container {
+  flex: 1;
+}
