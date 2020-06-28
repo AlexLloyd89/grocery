@@ -1,4 +1,11 @@
-<div class="fill center">
-
-  <p >Here is some centered home text</p>
+<div class="fill flex-column">
+  <mat-card (click)="routeToList()" class="mat-elevation-z4">
+    <h1>Start new grocery list</h1>
+  </mat-card>
+  <mat-card (click)="routeToRecipe()" class="mat-elevation-z4">
+    <h1>Add new recipe</h1>
+  </mat-card>
+  <mat-card (click)="routeToAllrecipes()" class="mat-elevation-z4">
+    <h1>View existing recipes</h1>
+  </mat-card>
 </div>

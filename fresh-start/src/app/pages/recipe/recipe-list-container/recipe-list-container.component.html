@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>Add new recipe</h1>
+  <form [formGroup]="recipeForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Recipe name *</mat-label>
+      <input formControlName="name" matInput placeholder="Recipe name *" />
+    </mat-form-field>
+
+    <h1>Ingredient List</h1>
+
+    <div
+      formArrayName="ingredients"
+      *ngFor="let item of getIngredients(); let i = index"
+    >
+      <div [formGroupName]="i">
+        <mat-form-field appearance="outline">
+          <mat-label>Ingredient name *</mat-label>
+          <input
+            formControlName="ingredientName"
+            matInput
+            placeholder="Ingredient name *"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Amount *</mat-label>
+          <input formControlName="amount" matInput placeholder="Amount *" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Grocery Store *</mat-label>
+          <mat-select formControlName="groceryStore">
+            <mat-option *ngFor="let store of groceryStores" [value]="store">
+              {{ store }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-icon (click)="deleteIngredient(i)">delete</mat-icon>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button (click)="addIngredient()" mat-raised-button color="primary">
+        Add Ingredient
+      </button>
+      <button
+        [disabled]="!recipeForm.valid"
+        class="create-btn"
+        (click)="submitRecipeForm()"
+        mat-raised-button
+      >
+        Create Recipe
+      </button>
+    </div>
+  </form>
+</div>

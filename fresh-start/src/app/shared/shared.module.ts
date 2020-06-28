@@ -9,6 +9,9 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
 import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatCardModule } from "@angular/material/card";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 //Custom Components
 
@@ -22,7 +25,10 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     MatButtonModule,
     MatIconModule,
     MatSelectModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatDividerModule,
+    MatSnackBarModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -31,7 +37,10 @@ import { MatToolbarModule } from "@angular/material/toolbar";
     MatButtonModule,
     MatIconModule,
     MatSelectModule,
-    MatToolbarModule
-  ]
+    MatToolbarModule,
+    MatCardModule,
+    MatDividerModule,
+    MatSnackBarModule,
+  ],
 })
 export class SharedModule {}

@@ -34,6 +34,7 @@ body {
 .flex-column {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 // Text
@@ -228,4 +229,34 @@ body {
 }
 .pl-0 {
   padding-left: 0 !important;
+}
+
+.container {
+  height: 100%;
+  padding: 20px;
+}
+
+//Material
+.mat-card {
+  display: flex !important;
+  background: $accent;
+  color: white;
+  min-height: 150px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.mat-divider {
+  margin-bottom: 20px !important;
+  border-top-color: $primary;
 }
