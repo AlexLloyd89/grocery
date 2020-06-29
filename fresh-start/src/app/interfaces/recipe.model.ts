@@ -1,6 +1,8 @@
-import { GroceryStoreModel } from "./grocery-store.model";
+import { IngredientModel } from "./grocery-store.model";
 
 export interface RecipeModel {
-  ingredients: string[];
+  name: string;
+  ingredients: IngredientModel[];
   favorite: boolean;
+  total?: number;
 }

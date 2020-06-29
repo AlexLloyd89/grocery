@@ -1,1 +1,32 @@
-<p>grocery-list-container works!</p>
+<div class="list-container">
+  <div class="top-container">
+    <div class="top">
+      <mat-form-field appearance="outline">
+        <mat-label>Search for recipe</mat-label>
+        <input
+          type="text"
+          matInput
+          [formControl]="myControl"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option.name"
+          >
+            {{ option.name }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <div class="recipe-card-container">
+      <div *ngFor="let item of filteredRecipes">
+        <app-recipe-card [recipe]="item"></app-recipe-card>
+      </div>
+    </div>
+  </div>
+  <div class="view-list-container">
+    <button mat-raised-button color="primary">View Grocery List</button>
+  </div>
+</div>

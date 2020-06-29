@@ -12,6 +12,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
 
 //Custom Components
 
@@ -29,6 +30,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatCardModule,
     MatDividerModule,
     MatSnackBarModule,
+    MatAutocompleteModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -41,6 +43,7 @@ import { MatSnackBarModule } from "@angular/material/snack-bar";
     MatCardModule,
     MatDividerModule,
     MatSnackBarModule,
+    MatAutocompleteModule,
   ],
 })
 export class SharedModule {}

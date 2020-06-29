@@ -1,0 +1,40 @@
+.mat-card {
+  min-height: 100px !important;
+  width: 145px;
+  margin: 10px 0px;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.icon-container {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+}
+
+.star {
+  color: #e8ea7b;
+}
+
+.add {
+  color: #7bea7b;
+}
+
+.name {
+  font-weight: 500;
+}
+
+.total {
+  margin-bottom: 0px !important;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  .mat-icon {
+    color: #ea7b7b;
+  }
+}

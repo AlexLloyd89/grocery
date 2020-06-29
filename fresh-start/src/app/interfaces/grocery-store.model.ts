@@ -1,3 +1,5 @@
-export interface GroceryStoreModel {
-  name: string;
+export interface IngredientModel {
+  ingredientName: string;
+  groceryStore: string;
+  amount: string;
 }
