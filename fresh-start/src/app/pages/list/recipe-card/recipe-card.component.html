@@ -8,11 +8,4 @@
   <p class="name">
     {{ recipe.name }}
   </p>
-  <div class="bottom">
-    <p class="total">Total: {{ recipe.total }}</p>
-
-    <mat-icon *ngIf="recipe.total > 0" (click)="remove(recipe)"
-      >remove_circle_outline</mat-icon
-    >
-  </div>
 </mat-card>

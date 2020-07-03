@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { RecipeService } from "src/app/services/recipe.service";
 
 @Component({
   selector: "app-home",
@@ -7,9 +8,14 @@ import { Router } from "@angular/router";
   styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
-  constructor(private router: Router) {}
+  data = [];
+  constructor(private router: Router, private rs: RecipeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.rs.currentGroceryList$.subscribe((data) => {
+      this.data = data;
+    });
+  }
 
   routeToList() {
     this.router.navigate(["/list"]);
@@ -20,6 +26,6 @@ export class HomeComponent implements OnInit {
   }
 
   routeToAllrecipes() {
-    this.router.navigate(["/all-recipes"]);
+    this.router.navigate(["/all-recipes/shopping-list"]);
   }
 }

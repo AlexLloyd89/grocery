@@ -22,14 +22,18 @@ export class ShoppingListComponent implements OnInit {
 
   @ViewChild(MatTable) table: MatTable<any>;
   constructor(private recipeSvc: RecipeService) {
-    this.someData = true;
+    this.recipeSvc.getGroceryList();
   }
 
   ngOnInit(): void {
-    this.recipeSvc.currentGroceryList$.subscribe((data) => {
-      console.log("data", data);
-      data.map((recipe) => {
+    this.recipeSvc.currentGroceryList$.subscribe((data: any[]) => {
+      let newData = data.slice(-1).pop();
+      newData.map((recipe) => {
+        if (data.length < 1) {
+          this.someData = false;
+        }
         recipe.ingredients.map((ingredient) => {
+          this.someData = true;
           this.ingredientBreakdown.push(ingredient);
           this.dataSource.data = this.ingredientBreakdown;
         });
@@ -42,13 +46,12 @@ export class ShoppingListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  change(item: IngredientModel) {
-    console.log("item", item);
-  }
+  change(item: IngredientModel) {}
 
   clearList() {
+    this.recipeSvc.deleteList();
+    this.recipeSvc.updateCurrentGroceryList(null);
     this.someData = false;
     this.dataSource.data = [];
-    this.table.renderRows();
   }
 }

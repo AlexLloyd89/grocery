@@ -3,6 +3,7 @@ import { RecipeModel } from "src/app/interfaces/recipe.model";
 import { RecipeService } from "src/app/services/recipe.service";
 import { MatDialog } from "@angular/material/dialog";
 import { ConfirmDialogComponent } from "src/app/shared/components/confirm-dialog/confirm-dialog.component";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-recipe-card",
@@ -12,17 +13,21 @@ import { ConfirmDialogComponent } from "src/app/shared/components/confirm-dialog
 export class RecipeCardComponent implements OnInit {
   @Input() recipe: RecipeModel;
   total: number;
-  constructor(private recipeSvc: RecipeService, private dialog: MatDialog) {}
+  constructor(
+    private recipeSvc: RecipeService,
+    private dialog: MatDialog,
+    private snack: MatSnackBar
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.recipeSvc.getRecipes();
+  }
 
   addRecipe(item: RecipeModel): void {
-    if (!item.total) {
-      item.total = 1;
-    } else {
-      item.total++;
-    }
-    console.log("item", item);
+    this.snack.open(`Added ${item.name} to list`, "X", {
+      duration: 2000,
+    });
+
     this.recipeSvc.updateCurrentGroceryList(item);
   }
 
@@ -31,7 +36,6 @@ export class RecipeCardComponent implements OnInit {
   }
 
   deleteRecipe(reicpe: RecipeModel): void {
-    console.log("reicpe", reicpe);
     this.dialog.open(ConfirmDialogComponent, {
       data: { recipe: reicpe },
     });

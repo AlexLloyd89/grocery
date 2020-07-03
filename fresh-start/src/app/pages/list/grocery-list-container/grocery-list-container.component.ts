@@ -19,7 +19,11 @@ export class GroceryListContainerComponent implements OnInit {
   constructor(private recipesService: RecipeService, private router: Router) {}
 
   ngOnInit(): void {
-    this.recipes = this.recipesService.recipes;
+    this.recipesService.getRecipes();
+
+    this.recipesService.recipes$.subscribe((data) => {
+      this.recipes = data;
+    });
 
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(""),
@@ -38,6 +42,9 @@ export class GroceryListContainerComponent implements OnInit {
   }
 
   navigate() {
+    this.recipesService.createGroceryList(
+      this.recipesService.currentGroceryList$.value
+    );
     this.router.navigate(["/all-recipes/shopping-list"]);
   }
 }

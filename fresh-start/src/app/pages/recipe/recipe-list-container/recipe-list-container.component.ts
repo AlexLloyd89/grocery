@@ -7,6 +7,7 @@ import {
   FormBuilder,
 } from "@angular/forms";
 import { MatSnackBar } from "@angular/material/snack-bar";
+import { RecipeService } from "src/app/services/recipe.service";
 
 @Component({
   selector: "app-recipe-list-container",
@@ -25,7 +26,7 @@ export class RecipeListContainerComponent implements OnInit {
     "Harris Teeter",
   ];
 
-  constructor(private snack: MatSnackBar) {}
+  constructor(private snack: MatSnackBar, private rs: RecipeService) {}
 
   ngOnInit(): void {
     this.generateRecipeForm();
@@ -62,6 +63,10 @@ export class RecipeListContainerComponent implements OnInit {
   }
 
   submitRecipeForm() {
+    this.rs.createRecipe(
+      this.recipeForm.value.name,
+      this.recipeForm.value.ingredients
+    );
     this.snack.open("Recipe added successfully", "X", { duration: 2000 });
   }
 }

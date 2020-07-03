@@ -8,7 +8,11 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { HeaderComponent } from "./shared/components/header/header.component";
 import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatButtonModule } from "@angular/material/button";
+
+// import { AngularFireModule } from "@angular/fire";
+// import { AngularFireStorageModule } from "@angular/fire/storage";
+import { environment } from "../environments/environment";
+import * as firebase from "firebase";
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
@@ -17,9 +21,15 @@ import { MatButtonModule } from "@angular/material/button";
     AppRoutingModule,
     BrowserAnimationsModule,
     MatToolbarModule,
+    // AngularFireModule.initializeApp(environment.firebaseConfig),
+    // AngularFireStorageModule,
   ],
 
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    firebase.initializeApp(environment.firebaseConfig);
+  }
+}

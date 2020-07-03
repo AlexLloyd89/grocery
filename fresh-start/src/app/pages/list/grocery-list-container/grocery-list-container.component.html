@@ -20,11 +20,13 @@
       </mat-form-field>
     </div>
 
+    <!-- <div *ngIf="recipes.length > 0; else nothing" class="recipe-card-container"> -->
     <div class="recipe-card-container">
-      <div *ngFor="let item of filteredRecipes">
+      <div *ngFor="let item of recipes">
         <app-recipe-card [recipe]="item"></app-recipe-card>
       </div>
     </div>
+    <!-- <ng-template #nothing>loading...</ng-template> -->
   </div>
   <div class="view-list-container">
     <button (click)="navigate()" mat-raised-button color="primary">
