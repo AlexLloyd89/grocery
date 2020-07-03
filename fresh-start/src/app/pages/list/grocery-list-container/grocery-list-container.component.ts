@@ -4,6 +4,7 @@ import { RecipeService } from "src/app/services/recipe.service";
 import { FormControl } from "@angular/forms";
 import { Observable } from "rxjs";
 import { map, startWith } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-grocery-list-container",
@@ -15,7 +16,7 @@ export class GroceryListContainerComponent implements OnInit {
   myControl = new FormControl();
   filteredOptions: Observable<RecipeModel[]>;
   filteredRecipes: RecipeModel[] = [];
-  constructor(private recipesService: RecipeService) {}
+  constructor(private recipesService: RecipeService, private router: Router) {}
 
   ngOnInit(): void {
     this.recipes = this.recipesService.recipes;
@@ -34,5 +35,9 @@ export class GroceryListContainerComponent implements OnInit {
     return this.recipes.filter(
       (option) => option.name.toLowerCase().indexOf(filterValue) === 0
     );
+  }
+
+  navigate() {
+    this.router.navigate(["/all-recipes/shopping-list"]);
   }
 }

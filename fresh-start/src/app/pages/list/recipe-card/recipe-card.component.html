@@ -1,8 +1,6 @@
 <mat-card class="mat-elevation-z4">
   <div class="icon-container">
-    <mat-icon class="star" (click)="toggleFavorite(recipe)">{{
-      recipe.favorite ? "star" : "star_outline"
-    }}</mat-icon>
+    <mat-icon class="star" (click)="deleteRecipe(recipe)">delete</mat-icon>
     <mat-icon (click)="addRecipe(recipe)" class="add"
       >add_circle_outline</mat-icon
     >

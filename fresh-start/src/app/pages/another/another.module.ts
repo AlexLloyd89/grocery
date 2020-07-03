@@ -2,9 +2,10 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { SharedModule } from "src/app/shared/shared.module";
 import { AnotherRoutingModule } from "./another-routing.module";
+import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [ShoppingListComponent],
   imports: [CommonModule, SharedModule, AnotherRoutingModule]
 })
 export class AnotherModule {}

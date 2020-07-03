@@ -24,8 +24,13 @@ const routes: Routes = [
   },
   {
     path: "all-recipes",
-    loadChildren: () =>
-      import("./pages/another/another.module").then((m) => AnotherModule),
+    children: [
+      {
+        path: "",
+        loadChildren: () =>
+          import("./pages/another/another.module").then((m) => AnotherModule),
+      },
+    ],
   },
 
   //catch all

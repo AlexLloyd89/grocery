@@ -49,7 +49,6 @@ export class RecipeListContainerComponent implements OnInit {
   addIngredient() {
     this.ingredients = this.recipeForm.get("ingredients") as FormArray;
     this.ingredients.push(this.createIngredient());
-    console.log("this.ingredients", this.ingredients);
   }
 
   getIngredients() {
