@@ -1,9 +1,23 @@
 .list-container {
-  padding: 20px 20px 0px;
+  display: flex;
+  .mat-checkbox {
+    margin-right: 15px;
+  }
+}
+p {
+  margin-right: 15px !important;
+}
+
+p.found {
+  color: pink !important;
+}
+
+p.not-found {
+  color: black !important;
 }
 
 .table-container {
-  max-height: 600px;
+  height: 90%;
   overflow: auto;
   margin-bottom: 15px;
 }
@@ -13,7 +27,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.6);
   button {
     width: 90%;
   }
@@ -21,4 +34,8 @@
 
 h1 {
   text-align: center;
+}
+
+.accordian-container {
+  padding: 20px 0px;
 }

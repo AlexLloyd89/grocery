@@ -22,7 +22,7 @@
 
     <!-- <div *ngIf="recipes.length > 0; else nothing" class="recipe-card-container"> -->
     <div class="recipe-card-container">
-      <div *ngFor="let item of recipes">
+      <div *ngFor="let item of filteredRecipes">
         <app-recipe-card [recipe]="item"></app-recipe-card>
       </div>
     </div>

@@ -16,6 +16,7 @@ import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { MatTableModule } from "@angular/material/table";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDialogModule } from "@angular/material/dialog";
+import { MatExpansionModule } from "@angular/material/expansion";
 
 //Custom Components
 
@@ -37,6 +38,7 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatTableModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatExpansionModule,
   ],
   exports: [
     ReactiveFormsModule,
@@ -53,6 +55,7 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatTableModule,
     MatCheckboxModule,
     MatDialogModule,
+    MatExpansionModule,
   ],
 })
 export class SharedModule {}

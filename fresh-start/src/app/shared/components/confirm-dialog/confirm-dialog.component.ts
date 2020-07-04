@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from "@angular/core";
 import { MatDialog, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { RecipeModel } from "src/app/interfaces/recipe.model";
+import { RecipeService } from "src/app/services/recipe.service";
 
 interface ConfrimDialogModel {
   recipe: RecipeModel;
@@ -15,7 +16,8 @@ export class ConfirmDialogComponent implements OnInit {
   constructor(
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA)
-    public data: ConfrimDialogModel
+    public data: ConfrimDialogModel,
+    private rs: RecipeService
   ) {}
 
   ngOnInit(): void {}
@@ -24,6 +26,6 @@ export class ConfirmDialogComponent implements OnInit {
     this.dialog.closeAll();
   }
   confirm() {
-    console.log("this.data", this.data);
+    this.dialog.closeAll();
   }
 }

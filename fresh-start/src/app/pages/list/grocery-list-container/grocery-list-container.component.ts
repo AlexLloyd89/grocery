@@ -30,7 +30,15 @@ export class GroceryListContainerComponent implements OnInit {
       map((value) => (typeof value === "string" ? value : value.name)),
       map((name) => (name ? this._filter(name) : this.recipes.slice()))
     );
-    this.filteredOptions.subscribe((data) => (this.filteredRecipes = data));
+    this.filteredOptions.subscribe((data) => {
+      console.log("data", data);
+      console.log("this.recipes", this.recipes);
+      if (data.length > 0) {
+        this.filteredRecipes = data;
+      } else {
+        this.filteredRecipes = this.recipes;
+      }
+    });
   }
 
   private _filter(name: string): RecipeModel[] {

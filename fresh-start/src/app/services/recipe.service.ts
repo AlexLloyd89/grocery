@@ -57,4 +57,10 @@ export class RecipeService {
     database().ref("/grocery-list").remove();
     this.currentGroceryList$.next([]);
   }
+
+  deleteRecipe(recipe: RecipeModel) {
+    let ref = database().ref("recipe/" + recipe);
+
+    ref.remove();
+  }
 }

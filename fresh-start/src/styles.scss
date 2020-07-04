@@ -19,6 +19,20 @@ table.mat-table {
   width: 100%;
 }
 
+//mat-expansion
+.mat-accordion {
+  margin: 15px 0px;
+}
+
+.mat-expansion-panel-header {
+  font-size: 21px;
+}
+
+.mat-expansion-panel-body {
+  max-height: 300px;
+  overflow: auto;
+}
+
 // Display
 .justify-center {
   display: flex;

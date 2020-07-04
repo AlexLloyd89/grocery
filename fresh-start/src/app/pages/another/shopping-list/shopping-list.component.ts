@@ -19,6 +19,14 @@ export class ShoppingListComponent implements OnInit {
     "amount",
   ];
   someData;
+  found: boolean;
+
+  sams: any[] = [];
+  publix: any[] = [];
+  farmacy: any[] = [];
+  walMart: any[] = [];
+  ingles: any[] = [];
+  harrisTeeter: any[] = [];
 
   @ViewChild(MatTable) table: MatTable<any>;
   constructor(private recipeSvc: RecipeService) {
@@ -32,10 +40,29 @@ export class ShoppingListComponent implements OnInit {
         if (data.length < 1) {
           this.someData = false;
         }
-        recipe.ingredients.map((ingredient) => {
+        recipe.ingredients.map((ingredient: IngredientModel) => {
           this.someData = true;
           this.ingredientBreakdown.push(ingredient);
           this.dataSource.data = this.ingredientBreakdown;
+          if (ingredient.groceryStore === "Sam's Club") {
+            let updatedObj = { ...ingredient, found: false };
+            this.sams.push(updatedObj);
+          }
+          if (ingredient.groceryStore === "Publix") {
+            this.publix.push(ingredient);
+          }
+          if (ingredient.groceryStore === "Farmacy") {
+            this.farmacy.push(ingredient);
+          }
+          if (ingredient.groceryStore === "Wal-mart") {
+            this.walMart.push(ingredient);
+          }
+          if (ingredient.groceryStore === "Ingles") {
+            this.ingles.push(ingredient);
+          }
+          if (ingredient.groceryStore === "Harris Teeter") {
+            this.harrisTeeter.push(ingredient);
+          }
         });
       });
     });
@@ -46,7 +73,11 @@ export class ShoppingListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  change(item: IngredientModel) {}
+  change(item: any, index: number) {
+    console.log("item", item);
+    console.log("index", index);
+    item.found = !item.found;
+  }
 
   clearList() {
     this.recipeSvc.deleteList();

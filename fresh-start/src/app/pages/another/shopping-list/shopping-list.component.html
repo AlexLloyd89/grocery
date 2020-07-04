@@ -1,12 +1,12 @@
-<div class="list-container">
+<!-- <div class="list-container">
   <mat-form-field appearance="outline">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input />
   </mat-form-field>
-</div>
+</div> -->
 <div *ngIf="someData; else nothing" class="table-container">
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <!-- Position Column -->
+  <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
     <ng-container matColumnDef="found">
       <th mat-header-cell *matHeaderCellDef>Found</th>
       <td mat-cell *matCellDef="let element">
@@ -14,19 +14,18 @@
       </td>
     </ng-container>
 
-    <!-- Name Column -->
+
     <ng-container matColumnDef="ingredientName">
       <th mat-header-cell *matHeaderCellDef>Ingredient</th>
       <td mat-cell *matCellDef="let element">{{ element.ingredientName }}</td>
     </ng-container>
 
-    <!-- Weight Column -->
+
     <ng-container matColumnDef="groceryStore">
       <th mat-header-cell *matHeaderCellDef>Store</th>
       <td mat-cell *matCellDef="let element">{{ element.groceryStore }}</td>
     </ng-container>
 
-    <!-- Symbol Column -->
     <ng-container matColumnDef="amount">
       <th mat-header-cell *matHeaderCellDef>Amount</th>
       <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
@@ -35,13 +34,118 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-    <!-- Row shown when there is no matching data. -->
     <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">
         No data matching the filter "{{ input.value }}"
       </td>
     </tr>
-  </table>
+  </table>  -->
+
+  <div class="accordian-container">
+    <mat-accordion *ngIf="sams.length > 0">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header
+          ><b>Sam's Club</b></mat-expansion-panel-header
+        >
+        <div *ngFor="let item of sams; let i = index" class="list-container">
+          <mat-checkbox color="primary"></mat-checkbox>
+          <p>
+            {{ item.ingredientName }}
+          </p>
+          <p>
+            {{ item.amount }}
+          </p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="accordian-container">
+    <mat-accordion *ngIf="publix.length > 0">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header><b>Publix</b></mat-expansion-panel-header>
+        <div *ngFor="let item of publix; let i = index" class="list-container">
+          <mat-checkbox color="primary"></mat-checkbox>
+          <p>
+            {{ item.ingredientName }}
+          </p>
+          <p>
+            {{ item.amount }}
+          </p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="accordian-container">
+    <mat-accordion *ngIf="farmacy.length > 0">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header><b>Farmacy</b></mat-expansion-panel-header>
+        <div *ngFor="let item of farmacy; let i = index" class="list-container">
+          <mat-checkbox color="primary"></mat-checkbox>
+          <p>
+            {{ item.ingredientName }}
+          </p>
+          <p>
+            {{ item.amount }}
+          </p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="accordian-container">
+    <mat-accordion *ngIf="harrisTeeter.length > 0">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header
+          ><b>Harris Teeter</b></mat-expansion-panel-header
+        >
+        <div
+          *ngFor="let item of harrisTeeter; let i = index"
+          class="list-container"
+        >
+          <mat-checkbox color="primary"></mat-checkbox>
+          <p>
+            {{ item.ingredientName }}
+          </p>
+          <p>
+            {{ item.amount }}
+          </p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="accordian-container">
+    <mat-accordion *ngIf="ingles.length > 0">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header><b>Ingles</b></mat-expansion-panel-header>
+        <div *ngFor="let item of ingles; let i = index" class="list-container">
+          <mat-checkbox color="primary"></mat-checkbox>
+          <p>
+            {{ item.ingredientName }}
+          </p>
+          <p>
+            {{ item.amount }}
+          </p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <div class="accordian-container">
+    <mat-accordion *ngIf="walMart.length > 0">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header><b>Wal-Mart</b></mat-expansion-panel-header>
+        <div *ngFor="let item of walMart; let i = index" class="list-container">
+          <mat-checkbox color="primary"></mat-checkbox>
+          <p>
+            {{ item.ingredientName }}
+          </p>
+          <p>
+            {{ item.amount }}
+          </p>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
 </div>
 <ng-template #nothing>
   <h1>List cleared</h1>
